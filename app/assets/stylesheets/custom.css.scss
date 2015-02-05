@@ -254,12 +254,15 @@ input {
     img {
       display: block;
       padding: 5px 0;
+      height: auto;
+      max-width: 100%;
     }
   }
   .timestamp {
     color: $gray-light;
     display: block;
     margin-left: 60px;
+    font-size: 0.7em;
   }
   .gravatar {
     float: left;
@@ -281,4 +284,3 @@ span.picture {
     border: 0;
   }
 }
-
