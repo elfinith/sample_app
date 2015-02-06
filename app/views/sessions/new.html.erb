@@ -11,6 +11,10 @@
       <%= f.submit "Войти", class: "btn btn-primary" %>
     <% end %>
 
-    <p>Новый пользователь? <%= link_to "Зарегистрироваться!", signup_path %></p>
+    <p>
+     Новый пользователь? <%= link_to signup_path do %>
+       <span class="glyphicon glyphicon-lock"></span> Зарегистрироватьcя!
+     <% end %>
+    </p>
   </div>
 </div>

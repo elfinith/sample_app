@@ -5,7 +5,9 @@
   <span class="timestamp">
     Размещено <%= time_ago_in_words(micropost.created_at) %> тому назад.
     <% if current_user?(micropost.user) %>
-      <%= link_to "[удалить]", micropost, method: :delete, data: { confirm: "Вы уверены?" }, title: micropost.content %>
+      <%= link_to micropost, method: :delete, data: { confirm: "Вы уверены?" }, title: micropost.content do %>
+        <span class="glyphicon glyphicon-trash"></span> удалить
+      <% end %>
     <% end %>
   </span>
 </li>
