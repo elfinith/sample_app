@@ -8,6 +8,10 @@
       <%= link_to micropost, method: :delete, data: { confirm: "Вы уверены?" }, title: micropost.content do %>
         <span class="glyphicon glyphicon-trash"></span> удалить
       <% end %>
+    <% else %>
+      <%= link_to micropost do %>
+        <span class="glyphicon glyphicon-new-window"></span> ответить
+      <% end %>
     <% end %>
   </span>
 </li>

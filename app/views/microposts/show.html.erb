@@ -1,0 +1,31 @@
+<% provide(:title, @user.name) %>
+<% set_focus_to_id "field" %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user-info">
+      <%= render 'shared/user_info' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <h3>Ответить на сообщение</h3>
+    <li class="microposts">
+      <%= link_to gravatar_for(@micropost.user, size: 50), @micropost.user %>
+      <span class="user">
+        <%= link_to @micropost.user.name, @micropost.user%>
+      </span>
+      <span class="content">
+        <%= auto_link(@micropost.content) %>
+      </span>
+      <span class="timestamp">
+        Размещено <%= time_ago_in_words(@micropost.created_at) %> тому назад
+      </span>
+    </li>
+      <%= form_for(@reply) do |f| %>
+        <div class="field">
+          <%= f.text_area :content, autofocus: true %>
+        </div>
+        <%= f.submit "Ответить", class: "btn btn-primary" %>
+      <% end %>
+
+  </div>
+</div>

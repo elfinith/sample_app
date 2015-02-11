@@ -9,4 +9,9 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+
+        #Autofocus
+        def set_focus_to_id(id)
+        	javascript_tag("$('#{id}').focus()")
+        end
 end
