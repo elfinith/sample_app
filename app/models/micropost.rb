@@ -1,10 +1,22 @@
+include AutoHtml
+
 class Micropost < ActiveRecord::Base
   belongs_to :user
-  before_save :find_image_url
+  
   IMAGE_URL_REGEX = /\Ahttp:.*(jpeg|jpg|gif|png)\z/i
   default_scope -> { order('created_at DESC') }
   validates :content, presence: true, length: { maximum: 140 }
   validates :user_id, presence: true
+
+  auto_html_for :content do
+    html_escape
+    image
+    youtube(:width => 400, :height => 250, :autoplay => false)
+    vimeo(:width =>400, :height => 250, :autoplay => false)
+    link :target => "_blank", :rel => "nofollow"
+    twitter
+    simple_format
+  end
   
   def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
@@ -15,7 +27,7 @@ class Micropost < ActiveRecord::Base
 
     def find_image_url
       str = self.content
-      self.content = "<img src='" + str + "'>" if !!(IMAGE_URL_REGEX =~ str)
+      self.content = auto_html(str) { simple_format; link(:target => 'blank') }
     end
 
 end

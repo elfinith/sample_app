@@ -13,6 +13,7 @@ end
 
 gem 'russian', '~> 0.6.0'
 gem 'rails_autolink', '1.1.6'
+gem 'auto_html'
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'

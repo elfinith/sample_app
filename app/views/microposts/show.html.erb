@@ -14,10 +14,10 @@
         <%= link_to @micropost.user.name, @micropost.user%>
       </span>
       <span class="content">
-        <%= auto_link(@micropost.content) %>
+        <%= @micropost.content %>
       </span>
       <span class="timestamp">
-        Размещено <%= time_ago_in_words(@micropost.created_at) %> тому назад
+        Размещено: <%= time_ago_in_words(@micropost.created_at) %> тому назад
       </span>
     </li>
       <%= form_for(@reply) do |f| %>
