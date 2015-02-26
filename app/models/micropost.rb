@@ -13,6 +13,8 @@ class Micropost < ActiveRecord::Base
     image
     youtube(:width => 400, :height => 250, :autoplay => false)
     vimeo(:width =>400, :height => 250, :autoplay => false)
+    instagram
+    google_map
     link :target => "_blank", :rel => "nofollow"
     twitter
     simple_format
